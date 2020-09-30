@@ -4,7 +4,7 @@ Community-maintained schemas for Cytoid-related JSON files
 
 ## How to use
 
-1. Use a [compatible editor](https://www.schemastore.org/json/#editors). Visual Studio Code is recommended.
+1. Use a [compatible editor](https://json-schema.org/implementations.html#editors). Visual Studio Code is recommended.
 2. Add a line to the head of your JSON file:
 ```json
 {
