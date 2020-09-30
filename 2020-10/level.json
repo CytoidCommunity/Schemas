@@ -10,9 +10,9 @@
             "minimum": 1
         },
         "id": {
-            "description": "Unique identifier of the level; must contain a~z, 0~9, . and _ only.",
+            "description": "Unique identifier of the level; must contain a-z, 0-9, . and _ only.",
             "type": "string",
-            "pattern": ""
+            "pattern": "^[a-z0-9_]+([-_.][a-z0-9_]+)+$"
         },
         "title": {
             "description": "The title of the song in its original language.",
