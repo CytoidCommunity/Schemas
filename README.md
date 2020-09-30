@@ -8,8 +8,7 @@ Community-maintained schemas for Cytoid-related JSON files
 2. Add a line to the head of your JSON file:
 ```json
 {
-    "$schema": "https://url/to/schema",
-    // ...
+    "$schema": "https://url/to/schema"
 }
 ```
 3. Enjoy the auto-completion!
