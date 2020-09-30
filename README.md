@@ -15,15 +15,11 @@ Community-maintained schemas for Cytoid-related JSON files
 
 ## Releases
 
-Latest version: NaN
-
-Draft version: 2020-10 (for Cytoid 2.0)
-
 ### level.json
 
-Latest: NaN
-
-Draft: [raw](https://cytoidcommunity.github.io/schemas/2020-10/level.json) | raw (compressed) | [mirror](https://gitee.com/ZeroAurora233/CytoidSchemas/raw/master/2020-10/level.json) | mirror (compressed)
+| Version | GitHub | Gitee (mirror) |
+| --- | --- | --- |
+| 2020-10 (Draft)| [raw](https://cytoidcommunity.github.io/schemas/2020-10/level.json) | [raw](https://gitee.com/ZeroAurora233/CytoidSchemas/raw/master/2020-10/level.json) |
 
 ## To-Dos
 
