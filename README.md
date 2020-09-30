@@ -20,8 +20,11 @@ Currently no releases here. Check back later!
 ## To-Dos
 
 - [ ] Complete the schemas.
+- [ ] Style the schemas using `Prettier` rather than the formatter included in Visual Studio Code.
+- [ ] Minify the schemas to reduce their size using `UglifyJS`.
+- [ ] Publish the first release!
 - [ ] Implement JSON Schema draft 2019-09 (after Visual Studio Code fully supports it).
 
 ## License
 
-For your convenience, the schemas are in **public domain**, under CC0-1.0. However, we would love you to add a credit to the description of your level!
+For your convenience, the schemas are in **public domain**, under CC0-1.0. However, we still hope you to credit us in the description of your level!

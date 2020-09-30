@@ -1,0 +1,167 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "$id": "https://cytoidcommunity.github.io/schemas/2020-10/level.json",
+    "title": "JSON schema for Cytoid level.json files",
+    "type": "object",
+    "properties": {
+        "version": {
+            "description": "The version of the level, which should start at 1. For every revision of the chart(s), you should bump the version by 1.",
+            "type": "integer",
+            "minimum": 1
+        },
+        "id": {
+            "description": "Unique identifier of the level; must contain a~z, 0~9, . and _ only.",
+            "type": "string",
+            "pattern": ""
+        },
+        "title": {
+            "description": "The title of the song in its original language.",
+            "type": "string"
+        },
+        "title_localized": {
+            "description": "(Optional) An English translation of the `title` field.",
+            "type": "string"
+        },
+        "artist": {
+            "description": "The name of the artist(s) of the song in their original language. If there are multiple artists, use half-space comma (,) to separate them.",
+            "type": "string"
+        },
+        "artist_localized": {
+            "description": "(Optional) An English translation of the “artist” field.",
+            "type": "string"
+        },
+        "artist_source": {
+            "description": "(Optional) The source of the song; must be a URL.",
+            "type": "string",
+            "format": "uri"
+        },
+        "illustrator": {
+            "description": "The name of the artist of the cover image in their original language. If there are multiple artists, use half-space comma (,) to separate them.",
+            "type": "string"
+        },
+        "illustrator_source": {
+            "description": "(Optional) The source of the cover image; must be a URL.",
+            "type": "string",
+            "format": "uri"
+        },
+        "charter": {
+            "description": "The name of the charter(s).",
+            "type": "string"
+        },
+        "storyboarder": {
+            "description": "The name of the storyboarder(s).",
+            "type": "string"
+        },
+        "music": {
+            "type": "object",
+            "properties": {
+                "path": {
+                    "description": "The relative path of the music file.",
+                    "type": "string",
+                    "format": "uri-reference"
+                }
+            },
+            "required": [
+                "path"
+            ]
+        },
+        "music_preview": {
+            "type": "object",
+            "properties": {
+                "path": {
+                    "description": "The relative path of the preview file.",
+                    "type": "string",
+                    "format": "uri-reference"
+                }
+            },
+            "required": [
+                "path"
+            ]
+        },
+        "background": {
+            "type": "object",
+            "properties": {
+                "path": {
+                    "description": "The relative path of the background file.",
+                    "type": "string",
+                    "format": "uri-reference"
+                }
+            },
+            "required": [
+                "path"
+            ]
+        },
+        "charts": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "description": "Type of the chart; must be `easy`, `hard` or `extreme`. Don't use `chaos`. Please.",
+                        "type": "string",
+                        "enum": [
+                            "easy",
+                            "hard",
+                            "extreme"
+                        ]
+                    },
+                    "name": {
+                        "description": "(Optional) Name of the chart. This is basically \"custom difficulty name\". You can use `CHAOS` here.",
+                        "type": "string"
+                    },
+                    "difficulty": {
+                        "description": "The difficulty of this chart. Must be an integer. Use 0 for `?` and 16 for `15+`.",
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 16
+                    },
+                    "path": {
+                        "description": "The relative path of the chart file.",
+                        "type": "string",
+                        "format": "uri-reference"
+                    },
+                    "storyboard": {
+                        "type": "object",
+                        "properties": {
+                            "path": {
+                                "description": "(Optional) The relative path of the storyboard file.",
+                                "type": "string",
+                                "format": "uri-reference"
+                            }
+                        },
+                        "required": [
+                            "path"
+                        ]
+                    },
+                    "music_override": {
+                        "type": "object",
+                        "properties": {
+                            "path": {
+                                "description": "(Optional) The relative path of the music overriding the main music file for this chart.",
+                                "type": "string",
+                                "format": "uri-reference"
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "type",
+                    "difficulty",
+                    "path"
+                ]
+            }
+        }
+    },
+    "required": [
+        "version",
+        "id",
+        "title",
+        "artist",
+        "illustrator",
+        "charter",
+        "music",
+        "music_preview",
+        "background",
+        "charts"
+    ]
+}
