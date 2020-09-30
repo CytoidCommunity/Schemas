@@ -19,8 +19,8 @@ Currently no releases here. Check back later!
 
 ## To-Dos
 
-- [] Complete the schemas.
-- [] Implement JSON Schema draft 2019-09 (after Visual Studio Code fully supports it).
+- [ ] Complete the schemas.
+- [ ] Implement JSON Schema draft 2019-09 (after Visual Studio Code fully supports it).
 
 ## License
 
