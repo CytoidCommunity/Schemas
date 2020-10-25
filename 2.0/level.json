@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft-07/schema",
-  "$id": "https://github.com/CytoidCommunity/Schemas/raw/master/2020-10/level.json",
+  "$id": "https://github.com/CytoidCommunity/Schemas/raw/master/2.0/level.json",
   "title": "JSON schema for Cytoid level.json files",
   "type": "object",
   "properties": {
