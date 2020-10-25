@@ -19,7 +19,7 @@ Community-maintained schemas for Cytoid-related JSON files
 
 | Version | GitHub | Gitee (mirror) |
 | --- | --- | --- |
-| 2020-10 (Draft)| [raw](https://github.com/CytoidCommunity/Schemas/raw/master/2020-10/level.json) | [raw](https://gitee.com/ZeroAurora233/CytoidSchemas/raw/master/2020-10/level.json) |
+| 2.0 (Draft)| [raw](https://github.com/CytoidCommunity/Schemas/raw/master/2.0/level.json) | [raw](https://gitee.com/ZeroAurora233/CytoidSchemas/raw/master/2.0/level.json) |
 
 ## To-Dos
 
