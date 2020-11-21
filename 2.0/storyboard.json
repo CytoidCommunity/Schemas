@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "$id": "https://github.com/CytoidCommunity/Schemas/raw/master/2.0/storyboard.json",
+  "title": "JSON schema for Cytoid storyboard files",
+  "definitions": {
+    "time": {
+      "oneOf": [
+        {
+          "type": "number",
+          "minimum": 0
+        },
+        {
+          "type": "string",
+          "oneOf": [
+            { "pattern": "^start:(\\d+|\\$note)(:-?\\d+(\\.?\\d+)?)?$" },
+            { "pattern": "^end:(\\d+|\\$note)(:-?\\d+(\\.?\\d+)?)?$" },
+            { "pattern": "^intro:(\\d+|\\$note)(:-?\\d+(\\.?\\d+)?)?$" },
+            { "pattern": "^at:(\\d+|\\$note):(0(\\.\\d+)?|1)$" }
+          ]
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/time"
+          }
+        }
+      ]
+    },
+    "easing": {
+      "$comment": "The easings listed here are taken from Easings.cs, a dependency of Cytoid. See https://github.com/Cytoid/Cytoid/blob/master/Assets/Scripts/Utils/Easings.cs",
+      "type": "string",
+      "enum": [
+        "EaseInQuad",
+        "EaseOutQuad",
+        "EaseInOutQuad",
+        "EaseInCubic",
+        "EaseOutCubic",
+        "EaseInOutCubic",
+        "EaseInQuart",
+        "EaseOutQuart",
+        "EaseInOutQuart",
+        "EaseInQuint",
+        "EaseOutQuint",
+        "EaseInOutQuint",
+        "EaseInSine",
+        "EaseOutSine",
+        "EaseInOutSine",
+        "EaseInExpo",
+        "EaseOutExpo",
+        "EaseInOutExpo",
+        "EaseInCirc",
+        "EaseOutCirc",
+        "EaseInOutCirc",
+        "EaseInBounce",
+        "EaseOutBounce",
+        "EaseInOutBounce",
+        "EaseInBack",
+        "EaseOutBack",
+        "EaseInOutBack",
+        "EaseInElastic",
+        "EaseOutElastic",
+        "EaseInOutElastic",
+        "Linear",
+        "Spring",
+        "Blink"
+      ]
+    },
+    "coordinate": {
+      "oneOf": [
+        {
+          "type":"number"
+        },
+        {
+          "type":"string",
+          "oneOf": [
+            {"pattern": "^stageX:\\d+(\\.\\d+)?$"},
+            {"pattern": "^stageY:\\d+(\\.\\d+)?$"},
+            {"pattern": "^noteX:\\d+(\\.\\d+)?$"},
+            {"pattern": "^noteY:\\d+(\\.\\d+)?$"},
+            {"pattern": "^cameraX:\\d+(\\.\\d+)?$"},
+            {"pattern": "^cameraY:\\d+(\\.\\d+)?$"},
+            {"pattern": "^depth:\\d+(\\.\\d+)?$"}
+          ]
+        }
+      ]
+    },
+    "baseState": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "time": {
+          "$ref": "#/definitions/time"
+        },
+        "relative_time": {
+          "type": "number"
+        },
+        "add_time": {
+          "type": "number"
+        },
+        "easing": {
+          "$ref": "#/definitions/easing"
+        },
+        "destroy": {
+          "type": "boolean"
+        },
+        "states": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/baseState"
+          }
+        }
+      }
+    },
+    "sceneState": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/baseState"
+        },
+        {
+          "properties": {
+            "target_id": {
+              "type": "string"
+            },
+            "x": {
+              "$ref": "#/definitions/coordinate"
+            },
+            "y": {
+              "$ref": "#/definitions/coordinate"
+            },
+            "z": {
+              "$ref": "#/definitions/coordinate"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
