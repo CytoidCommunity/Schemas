@@ -68,18 +68,18 @@
     "coordinate": {
       "oneOf": [
         {
-          "type":"number"
+          "type": "number"
         },
         {
-          "type":"string",
+          "type": "string",
           "oneOf": [
-            {"pattern": "^stageX:\\d+(\\.\\d+)?$"},
-            {"pattern": "^stageY:\\d+(\\.\\d+)?$"},
-            {"pattern": "^noteX:\\d+(\\.\\d+)?$"},
-            {"pattern": "^noteY:\\d+(\\.\\d+)?$"},
-            {"pattern": "^cameraX:\\d+(\\.\\d+)?$"},
-            {"pattern": "^cameraY:\\d+(\\.\\d+)?$"},
-            {"pattern": "^depth:\\d+(\\.\\d+)?$"}
+            { "pattern": "^stageX:\\d+(\\.\\d+)?$" },
+            { "pattern": "^stageY:\\d+(\\.\\d+)?$" },
+            { "pattern": "^noteX:\\d+(\\.\\d+)?$" },
+            { "pattern": "^noteY:\\d+(\\.\\d+)?$" },
+            { "pattern": "^cameraX:\\d+(\\.\\d+)?$" },
+            { "pattern": "^cameraY:\\d+(\\.\\d+)?$" },
+            { "pattern": "^depth:\\d+(\\.\\d+)?$" }
           ]
         }
       ]
