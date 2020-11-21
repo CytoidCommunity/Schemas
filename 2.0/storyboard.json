@@ -30,6 +30,7 @@
       "$comment": "The easings listed here are taken from Easings.cs, a dependency of Cytoid. See https://github.com/Cytoid/Cytoid/blob/master/Assets/Scripts/Utils/Easings.cs",
       "type": "string",
       "enum": [
+        "None",
         "EaseInQuad",
         "EaseOutQuad",
         "EaseInOutQuad",
