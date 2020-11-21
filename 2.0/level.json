@@ -61,9 +61,7 @@
           "format": "uri-reference"
         }
       },
-      "required": [
-        "path"
-      ]
+      "required": ["path"]
     },
     "music_preview": {
       "type": "object",
@@ -74,9 +72,7 @@
           "format": "uri-reference"
         }
       },
-      "required": [
-        "path"
-      ]
+      "required": ["path"]
     },
     "background": {
       "type": "object",
@@ -87,9 +83,7 @@
           "format": "uri-reference"
         }
       },
-      "required": [
-        "path"
-      ]
+      "required": ["path"]
     },
     "charts": {
       "type": "array",
@@ -99,11 +93,7 @@
           "type": {
             "description": "Type of the chart; must be `easy`, `hard` or `extreme`. Don't use `chaos`. Please.",
             "type": "string",
-            "enum": [
-              "easy",
-              "hard",
-              "extreme"
-            ]
+            "enum": ["easy", "hard", "extreme"]
           },
           "name": {
             "description": "(Optional) Name of the chart. This is basically \"custom difficulty name\". You can use `CHAOS` here.",
@@ -129,9 +119,7 @@
                 "format": "uri-reference"
               }
             },
-            "required": [
-              "path"
-            ]
+            "required": ["path"]
           },
           "music_override": {
             "type": "object",
@@ -144,11 +132,7 @@
             }
           }
         },
-        "required": [
-          "type",
-          "difficulty",
-          "path"
-        ]
+        "required": ["type", "difficulty", "path"]
       }
     }
   },
