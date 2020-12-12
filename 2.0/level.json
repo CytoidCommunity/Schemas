@@ -9,6 +9,14 @@
       "type": "integer",
       "minimum": 1
     },
+    "schema_version": {
+      "description": "The version of Cytoid level.json. You should use 2. Version 1 is for backward compability.",
+      "type": "integer",
+      "enum": [
+        1,
+        2
+      ]
+    },
     "id": {
       "description": "Unique identifier of the level; must contain a-z, 0-9, . and _ only.",
       "type": "string",
@@ -138,6 +146,7 @@
   },
   "required": [
     "version",
+    "schema_version",
     "id",
     "title",
     "artist",
