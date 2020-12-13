@@ -6,17 +6,12 @@
     "time": {
       "oneOf": [
         {
-          "type": "number",
-          "minimum": 0
+          "type": "string",
+          "pattern": "^(start|end|intro|at):(\\d+|\\$note)(:-?\\d+(\\.?\\d+)?)?$"
         },
         {
-          "type": "string",
-          "oneOf": [
-            { "pattern": "^start:(\\d+|\\$note)(:-?\\d+(\\.?\\d+)?)?$" },
-            { "pattern": "^end:(\\d+|\\$note)(:-?\\d+(\\.?\\d+)?)?$" },
-            { "pattern": "^intro:(\\d+|\\$note)(:-?\\d+(\\.?\\d+)?)?$" },
-            { "pattern": "^at:(\\d+|\\$note):(0(\\.\\d+)?|1)$" }
-          ]
+          "type": "number",
+          "minimum": 0
         },
         {
           "type": "array",
@@ -69,26 +64,18 @@
     "coordinate": {
       "oneOf": [
         {
-          "type": "number"
+          "type": "string",
+          "pattern": "^(stageX|stageY|noteX|noteY|cameraX|cameraY|depth:-?\\d+(\\.\\d+)?$"
         },
         {
-          "type": "string",
-          "oneOf": [
-            { "pattern": "^stageX:-?\\d+(\\.\\d+)?$" },
-            { "pattern": "^stageY:-?\\d+(\\.\\d+)?$" },
-            { "pattern": "^noteX:-?\\d+(\\.\\d+)?$" },
-            { "pattern": "^noteY:-?\\d+(\\.\\d+)?$" },
-            { "pattern": "^cameraX:-?\\d+(\\.\\d+)?$" },
-            { "pattern": "^cameraY:-?\\d+(\\.\\d+)?$" },
-            { "pattern": "^depth:-?\\d+(\\.\\d+)?$" }
-          ]
+          "type": "number"
         }
       ]
     },
     "color": {
       "type": "string",
       "$comment": "https://stackoverflow.com/a/56929144",
-      "pattern": "^#(?:[\\da-fA-F]{3}){1,2}$"
+      "pattern": "^#([\\da-fA-F]{3}){1,2}$"
     },
     "baseState": {
       "type": "object",
