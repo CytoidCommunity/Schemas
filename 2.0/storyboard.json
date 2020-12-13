@@ -88,7 +88,7 @@
     "color": {
       "type": "string",
       "$comment": "https://stackoverflow.com/a/56929144",
-      "pattern": "^#(?:[\\da-f]{3}){1,2}$"
+      "pattern": "^#(?:[\\da-fA-F]{3}){1,2}$"
     },
     "baseState": {
       "type": "object",
