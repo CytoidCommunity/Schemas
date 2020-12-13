@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft-07/schema",
+  "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "https://github.com/CytoidCommunity/Schemas/raw/master/2.0/storyboard.json",
   "title": "JSON schema for Cytoid storyboard files",
   "definitions": {
@@ -74,16 +74,21 @@
         {
           "type": "string",
           "oneOf": [
-            { "pattern": "^stageX:\\d+(\\.\\d+)?$" },
-            { "pattern": "^stageY:\\d+(\\.\\d+)?$" },
-            { "pattern": "^noteX:\\d+(\\.\\d+)?$" },
-            { "pattern": "^noteY:\\d+(\\.\\d+)?$" },
-            { "pattern": "^cameraX:\\d+(\\.\\d+)?$" },
-            { "pattern": "^cameraY:\\d+(\\.\\d+)?$" },
-            { "pattern": "^depth:\\d+(\\.\\d+)?$" }
+            { "pattern": "^stageX:-?\\d+(\\.\\d+)?$" },
+            { "pattern": "^stageY:-?\\d+(\\.\\d+)?$" },
+            { "pattern": "^noteX:-?\\d+(\\.\\d+)?$" },
+            { "pattern": "^noteY:-?\\d+(\\.\\d+)?$" },
+            { "pattern": "^cameraX:-?\\d+(\\.\\d+)?$" },
+            { "pattern": "^cameraY:-?\\d+(\\.\\d+)?$" },
+            { "pattern": "^depth:-?\\d+(\\.\\d+)?$" }
           ]
         }
       ]
+    },
+    "color": {
+      "type": "string",
+      "$comment": "https://stackoverflow.com/a/56929144",
+      "pattern": "^#(?:[\\da-f]{3}){1,2}$"
     },
     "baseState": {
       "type": "object",
@@ -105,16 +110,10 @@
         },
         "destroy": {
           "type": "boolean"
-        },
-        "states": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/baseState"
-          }
         }
       }
     },
-    "sceneState": {
+    "sceneObjectState": {
       "allOf": [
         {
           "$ref": "#/definitions/baseState"
@@ -132,10 +131,221 @@
             },
             "z": {
               "$ref": "#/definitions/coordinate"
+            },
+            "rot_x": {
+              "type": "number"
+            },
+            "rot_y": {
+              "type": "number"
+            },
+            "rot_z": {
+              "type": "number"
+            },
+            "scale_x": {
+              "type": "number"
+            },
+            "scale_y": {
+              "type": "number"
+            },
+            "scale": {
+              "type": "number"
+            },
+            "pivot_x": {
+              "type": "number"
+            },
+            "pivot_y": {
+              "type": "number"
+            },
+            "opacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "width": {
+              "$ref": "#/definitions/coordinate"
+            },
+            "height": {
+              "$ref": "#/definitions/coordinate"
+            },
+            "layer": {
+              "type": "integer",
+              "enum": [0, 1, 2]
+            },
+            "order": {
+              "type": "integer"
+            },
+            "fill_width": {
+              "type": "boolean"
             }
           }
         }
       ]
+    },
+    "textState": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/sceneObjectState"
+        },
+        {
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "color": {
+              "$ref": "#/definitions/color"
+            },
+            "size": {
+              "type": "integer"
+            },
+            "align": {
+              "type": "string",
+              "enum": [
+                "upperLeft",
+                "upperCenter",
+                "upperRight",
+                "middleLeft",
+                "middleCenter",
+                "middleRight",
+                "lowerLeft",
+                "lowerCenter",
+                "lowerRight"
+              ]
+            },
+            "letter_spacing": {
+              "type": "number"
+            },
+            "font_weight": {
+              "type": "string",
+              "enum": ["regular", "extraLight", "bold", "extraBold"]
+            },
+            "states": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/textState"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "spriteState": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/sceneObjectState"
+        },
+        {
+          "properties": {
+            "path": {
+              "type": "string",
+              "format": "uri-reference"
+            },
+            "preserve_aspect": {
+              "type": "boolean"
+            },
+            "color": {
+              "$ref": "#/definitions/color"
+            },
+            "states": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/spriteState"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "videoState": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/sceneObjectState"
+        },
+        {
+          "properties": {
+            "path": {
+              "type": "string",
+              "format": "uri-reference"
+            },
+            "color": {
+              "$ref": "#/definitions/color"
+            },
+            "states": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/videoState"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "noteControllerState": {},
+    "lineState": {},
+    "sceneControllerState": {}
+  },
+
+  "type": "object",
+  "properties": {
+    "texts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/textState"
+      }
+    },
+    "sprites": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/spriteState"
+      }
+    },
+    "videos": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/videoState"
+      }
+    },
+    "note_controllers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/noteControllerState"
+      }
+    },
+    "lines": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/lineState"
+      }
+    },
+    "controllers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/sceneControllerState"
+      }
+    },
+    "templates": {
+      "type": "object",
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/textState"
+          },
+          {
+            "$ref": "#/definitions/spriteState"
+          },
+          {
+            "$ref": "#/definitions/videoState"
+          },
+          {
+            "$ref": "#/definitions/noteControllerState"
+          },
+          {
+            "$ref": "#/definitions/lineState"
+          },
+          {
+            "$ref": "#/definitions/sceneControllerState"
+          }
+        ]
+      }
     }
   }
 }
