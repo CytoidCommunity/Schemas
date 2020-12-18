@@ -128,9 +128,14 @@
       ]
     },
     "color": {
-      "type": "string",
-      "$comment": "https://stackoverflow.com/a/56929144",
-      "pattern": "^#([\\da-fA-F]{3}){1,2}$"
+      "oneOf": [
+        {
+          "type": "string",
+          "$comment": "https://stackoverflow.com/a/56929144",
+          "pattern": "^#([\\da-fA-F]{3}){1,2}$"
+        },
+        { "type": "null" }
+      ]
     },
     "baseState": {
       "type": "object",
@@ -153,6 +158,9 @@
         },
         "destroy": {
           "type": "boolean"
+        },
+        "template": {
+          "type": "string"
         }
       }
     },
@@ -467,7 +475,248 @@
         }
       ]
     },
-    "sceneControllerState": {}
+    "sceneControllerState": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/baseState"
+        },
+        {
+          "properties": {
+            "storyboard_opacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "ui_opacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "scanline_opacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "background_dim": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "note_opacity_multiplier": {
+              "type": "number"
+            },
+            "scanline_color": {
+              "$ref": "#/definitions/color"
+            },
+            "note_ring_color": {
+              "$ref": "#/definitions/color"
+            },
+            "note_fill_colors": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/color"
+              },
+              "minLength": 12,
+              "maxLength": 12
+            },
+            "override_scanline_pos": {
+              "type": "boolean"
+            },
+            "scanline_pos": {
+              "$ref": "#/definitions/coordinate"
+            },
+            "perspective": {
+              "type": "boolean"
+            },
+            "size": {
+              "type": "number"
+            },
+            "fov": {
+              "type": "number"
+            },
+            "x": {
+              "$ref": "#/definitions/coordinate"
+            },
+            "y": {
+              "$ref": "#/definitions/coordinate"
+            },
+            "z": {
+              "$ref": "#/definitions/coordinate"
+            },
+            "rot_x": {
+              "type": "number"
+            },
+            "rot_y": {
+              "type": "number"
+            },
+            "rot_z": {
+              "type": "number"
+            },
+            "chromatical": {
+              "type": "boolean"
+            },
+            "chromatical_fade": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "chromatical_intensity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "chromatical_speed": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 3
+            },
+            "bloom": {
+              "type": "boolean"
+            },
+            "bloom_intensity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 5
+            },
+            "radial_blur": {
+              "type": "boolean"
+            },
+            "radial_blur_intensity": {
+              "type": "number",
+              "minimum": -0.5,
+              "maximum": 0.5
+            },
+            "color_adjustment": {
+              "type": "boolean"
+            },
+            "brightness": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "saturation": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "contrast": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "color_filter": {
+              "type": "boolean"
+            },
+            "color_filter_color": {
+              "$ref": "#/definitions/color"
+            },
+            "gray_scale": {
+              "type": "boolean"
+            },
+            "gray_scale_intensity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "noise": {
+              "type": "boolean"
+            },
+            "noise_intensity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "sepia": {
+              "type": "boolean"
+            },
+            "sepia_intensity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "dream": {
+              "type": "boolean"
+            },
+            "dream_intensity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "fisheye": {
+              "type": "boolean"
+            },
+            "fisheye_intensity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "shockwave": {
+              "type": "boolean"
+            },
+            "shockwave_speed": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "focus": {
+              "type": "boolean"
+            },
+            "focus_size": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "focus_color": {
+              "$ref": "#/definitions/color"
+            },
+            "focus_speed": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 30
+            },
+            "focus_intensity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "glitch": {
+              "type": "boolean"
+            },
+            "glitch_intensity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "arcade": {
+              "type": "boolean"
+            },
+            "arcade_intensity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "arcade_interference_size": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "arcade_interference_speed": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "arcade_contrast": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "tape": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    }
   },
 
   "type": "object",
