@@ -3,15 +3,61 @@
   "$id": "https://github.com/CytoidCommunity/Schemas/raw/master/2.0/storyboard.json",
   "title": "JSON schema for Cytoid storyboard files",
   "definitions": {
+    "note": {
+      "oneOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "enum": [0, 1, 2, 3, 4, 5, 6, 7]
+              },
+              "additionalItems": false
+            },
+            "start": {
+              "type": "integer"
+            },
+            "end": {
+              "type": "integer"
+            },
+            "direction": {
+              "type": "integer",
+              "enum": [1, -1]
+            },
+            "min_x": {
+              "type": "number"
+            },
+            "max_x": {
+              "type": "number"
+            }
+          }
+        }
+      ]
+    },
     "time": {
       "oneOf": [
         {
-          "type": "string",
-          "pattern": "^(start|end|intro|at):(\\d+|\\$note)(:-?\\d+(\\.?\\d+)?)?$"
-        },
-        {
           "type": "number",
           "minimum": 0
+        },
+        {
+          "type": "string",
+          "examples": [
+            "start:",
+            "start:$note",
+            "end:",
+            "end:$note",
+            "intro:",
+            "intro:$note",
+            "at:",
+            "at:$note:"
+          ],
+          "pattern": "^(start|end|intro|at):(\\d+|\\$note)(:-?\\d+(\\.?\\d+)?)?$"
         },
         {
           "type": "array",
@@ -65,10 +111,20 @@
       "oneOf": [
         {
           "type": "string",
+          "examples": [
+            "stageX:",
+            "stageY:",
+            "noteX:",
+            "noteY:",
+            "cameraX:",
+            "cameraY",
+            "depth:"
+          ],
           "pattern": "^(stageX|stageY|noteX|noteY|cameraX|cameraY|depth:-?\\d+(\\.\\d+)?$"
         },
         {
-          "type": "number"
+          "type": "number",
+          "default": 0
         }
       ]
     },
@@ -81,7 +137,8 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "example": "$note"
         },
         "time": {
           "$ref": "#/definitions/time"
@@ -107,6 +164,9 @@
         },
         {
           "properties": {
+            "note": {
+              "$ref": "#/definitions/note"
+            },
             "target_id": {
               "type": "string"
             },
@@ -175,6 +235,10 @@
         },
         {
           "properties": {
+            "parent_id": {
+              "type":"string",
+              "example": "$note"
+            },
             "text": {
               "type": "string"
             },
@@ -222,6 +286,14 @@
         },
         {
           "properties": {
+            "parent_id": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "example": "$note"
+                }
+              ]
+            },
             "path": {
               "type": "string",
               "format": "uri-reference"
@@ -266,7 +338,90 @@
         }
       ]
     },
-    "noteControllerState": {},
+    "noteControllerState": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/baseState"
+        },
+        {
+          "properties": {
+            "note": {
+              "$ref": "#/definitions/note"
+            },
+            "override_x": {
+              "type": "boolean"
+            },
+            "x": {
+              "$ref": "#/definitions/coordinate"
+            },
+            "x_multiplier": {
+              "type": "number"
+            },
+            "dx": {
+              "$ref": "#/definitions/coordinate"
+            },
+            "override_y": {
+              "type": "boolean"
+            },
+            "y": {
+              "$ref": "#/definitions/coordinate"
+            },
+            "y_multiplier": {
+              "type": "number"
+            },
+            "dy": {
+              "$ref": "#/definitions/coordinate"
+            },
+            "override_z": {
+              "type": "boolean"
+            },
+            "z": {
+              "$ref": "#/definitions/coordinate"
+            },
+            "override_rot_x": {
+              "type": "boolean"
+            },
+            "rot_x": {
+              "type": "number"
+            },
+            "override_rot_y": {
+              "type": "boolean"
+            },
+            "rot_y": {
+              "type": "number"
+            },
+            "override_rot_z": {
+              "type": "boolean"
+            },
+            "rot_z": {
+              "type": "number"
+            },
+            "override_ring_color": {
+              "type": "boolean"
+            },
+            "ring_color": {
+              "$ref": "#/definitions/color"
+            },
+            "override_fill_color": {
+              "type": "boolean"
+            },
+            "fill_color": {
+              "$ref": "#/definitions/color"
+            },
+            "opacity_multiplier": {
+              "type": "number"
+            },
+            "size_multiplier": {
+              "type": "number"
+            },
+            "hold_direction": {
+              "type": "number",
+              "enum": [-1, 1]
+            }
+          }
+        }
+      ]
+    },
     "lineState": {},
     "sceneControllerState": {}
   },

@@ -24,7 +24,8 @@ Community-maintained schemas for Cytoid-related JSON files
 ## To-Dos
 
 - [ ] Complete the schemas.
-- [ ] Style the schemas using `Prettier` rather than the formatter included in Visual Studio Code.
+- [ ] Complete integrated documentation.
+- [x] Style the schemas using `Prettier` rather than the formatter included in Visual Studio Code.
 - [ ] Publish the first release!
 - [ ] Implement JSON Schema draft 2019-09 (after Visual Studio Code fully supports it).
 
