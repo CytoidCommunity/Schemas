@@ -427,7 +427,46 @@
         }
       ]
     },
-    "lineState": {},
+    "lineState": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/sceneObjectState"
+        },
+        {
+          "properties": {
+            "pos": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "$ref": "#/definitions/coordinate"
+                  },
+                  "y": {
+                    "$ref": "#/definitions/coordinate"
+                  },
+                  "z": {
+                    "$ref": "#/definitions/coordinate"
+                  }
+                }
+              }
+            },
+            "width": {
+              "type": "number"
+            },
+            "color": {
+              "$ref": "#/definitions/color"
+            },
+            "states": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/lineState"
+              }
+            }
+          }
+        }
+      ]
+    },
     "sceneControllerState": {}
   },
 
