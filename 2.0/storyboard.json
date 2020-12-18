@@ -236,7 +236,7 @@
         {
           "properties": {
             "parent_id": {
-              "type":"string",
+              "type": "string",
               "example": "$note"
             },
             "text": {
