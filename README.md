@@ -15,6 +15,8 @@ Community-maintained schemas for Cytoid-related JSON files
 
 3. Enjoy the auto-completion!
 
+> Well not really. What JSON Schema can provide is actually very restricted. If you use a better tool, continue using it! This schema is to help you to write correct Cytoid-specific JSON files by hand.
+
 ## Releases
 
 ### level.json
