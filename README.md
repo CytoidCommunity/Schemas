@@ -6,20 +6,28 @@ Community-maintained schemas for Cytoid-related JSON files
 
 1. Use a [compatible editor](https://json-schema.org/implementations.html#editors). Visual Studio Code is recommended.
 2. Add a line to the head of your JSON file:
+
 ```json
 {
-    "$schema": "https://url/to/schema"
+  "$schema": "https://url/to/schema"
 }
 ```
+
 3. Enjoy the auto-completion!
 
 ## Releases
 
 ### level.json
 
-| Version | GitHub | Gitee (mirror) |
-| --- | --- | --- |
-| 2.0 (Draft)| [raw](https://github.com/CytoidCommunity/Schemas/raw/master/2.0/level.json) | [raw](https://gitee.com/ZeroAurora233/CytoidSchemas/raw/master/2.0/level.json) |
+| Version     | GitHub                                                                                                                                                      | Gitee (mirror)                                                                                                                                                    |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2.0 (Draft) | [raw](https://github.com/CytoidCommunity/Schemas/raw/master/2.0/level.json) [min](https://github.com/CytoidCommunity/Schemas/raw/master/min/2.0/level.json) | [raw](https://gitee.com/ZeroAurora233/CytoidSchemas/raw/master/2.0/level.json) [min](https://gitee.com/ZeroAurora233/CytoidSchemas/raw/master/min/2.0/level.json) |
+
+### storyboard.json
+
+| Version     | GitHub                                                                                                                                                                | Gitee (mirror)                                                                                                                                                              |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2.0 (Draft) | [raw](https://github.com/CytoidCommunity/Schemas/raw/master/2.0/storyboard.json) [min](https://github.com/CytoidCommunity/Schemas/raw/master/min/2.0/storyboard.json) | [raw](https://gitee.com/ZeroAurora233/CytoidSchemas/raw/master/2.0/storyboard.json) [min](https://gitee.com/ZeroAurora233/CytoidSchemas/raw/master/min/2.0/storyboard.json) |
 
 ## To-Dos
 
