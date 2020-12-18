@@ -9,7 +9,8 @@ Community-maintained schemas for Cytoid-related JSON files
 
 ```json
 {
-  "$schema": "https://url/to/schema"
+  "$schema": "https://url/to/schema",
+  "other_things": "go_here"
 }
 ```
 
@@ -18,6 +19,8 @@ Community-maintained schemas for Cytoid-related JSON files
 > Well not really. What JSON Schema can provide is actually very restricted. If you use a better tool, continue using it! This schema is to help you to write correct Cytoid-specific JSON files by hand.
 
 ## Releases
+
+**NOTE: Minimal version is preferred. It has smaller file size and makes computers smile.**
 
 ### level.json
 
