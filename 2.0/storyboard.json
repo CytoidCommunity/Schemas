@@ -712,6 +712,12 @@
             },
             "tape": {
               "type": "boolean"
+            },
+            "states": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/sceneControllerState"
+              }
             }
           }
         }
